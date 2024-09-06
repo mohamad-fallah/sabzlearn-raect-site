@@ -13,7 +13,7 @@ export default function SectionHeader({ title, desc, btnTitle }) {
           btnTitle ? (
             <div class="courses-header__left">
             <a href="#" class="courses-header__link">
-              تمامی دوره ها
+                {btnTitle}
               <i class="fas fa-arrow-left courses-header__icon"></i>
             </a>
           </div>
