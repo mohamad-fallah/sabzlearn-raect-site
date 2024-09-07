@@ -5,7 +5,7 @@ import Footer from "./../../Components/Footer/Footer";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import CourseDetailBox from "../../Components/CourseDetailBox/CourseDetailBox";
 import CommentsTextArea from "../../Components/CommentsTextArea/CommentsTextArea";
-import Accordion from "react-bootstrap/Accordion";
+import Accordion from 'react-bootstrap/Accordion';
 
 import "./CourseInfo.css";
 
