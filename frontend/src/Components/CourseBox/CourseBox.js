@@ -8,7 +8,7 @@ export default function CourseBox() {
       <div class="course-box">
         <a href="#">
           <img
-            src="images/courses/fareelancer.png"
+            src="/images/courses/fareelancer.png"
             alt="Course img"
             class="course-box__img"
           />
@@ -27,27 +27,27 @@ export default function CourseBox() {
             </div>
             <div class="course-box__rating">
               <img
-                src="images/svgs/star.svg"
+                src="/images/svgs/star.svg"
                 alt="rating"
                 class="course-box__star"
               />
               <img
-                src="images/svgs/star_fill.svg"
+                src="/images/svgs/star_fill.svg"
                 alt="rating"
                 class="course-box__star"
               />
               <img
-                src="images/svgs/star_fill.svg"
+                src="/images/svgs/star_fill.svg"
                 alt="rating"
                 class="course-box__star"
               />
               <img
-                src="images/svgs/star_fill.svg"
+                src="/images/svgs/star_fill.svg"
                 alt="rating"
                 class="course-box__star"
               />
               <img
-                src="images/svgs/star_fill.svg"
+                src="/images/svgs/star_fill.svg"
                 alt="rating"
                 class="course-box__star"
               />
