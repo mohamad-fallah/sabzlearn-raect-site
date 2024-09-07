@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../Components/Header/Header";
-import LastCourses from "../../Components/LastCourses/LastCourses";
 import AboutUs from "../../Components/AboutUs/AboutUs";
-import PopularCourses from "../../Components/PopularCourses/PopularCourses";
-import LastArticles from "../../Components/LastArticles/LastArticles";
-import PresellCourses from "../../Components/PresellCourses/PresellCourses";
 import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import LastArticles from "../../Components/LastArticles/LastArticles";
+import LastCourses from "../../Components/LastCourses/LastCourses";
+import PopularCourses from "../../Components/PopularCourses/PopularCourses";
+import PresellCourses from "../../Components/PresellCourses/PresellCourses";
 
 import "./Index.css";
 

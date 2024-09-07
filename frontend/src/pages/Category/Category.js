@@ -12,6 +12,7 @@ export default function Category() {
     <>
       <Topbar />
       <Navbar />
+
       <section class="courses">
         <div class="container">
           <div class="courses-top-bar">
@@ -50,6 +51,7 @@ export default function Category() {
                 </ul>
               </div>
             </div>
+
             <div class="courses-top-bar__left">
               <form action="#" class="courses-top-bar__form">
                 <input
@@ -61,6 +63,7 @@ export default function Category() {
               </form>
             </div>
           </div>
+
           <div class="courses-content">
             <div class="container">
               <div class="row">
@@ -70,9 +73,12 @@ export default function Category() {
               </div>
             </div>
           </div>
+
           <Pagination />
+
         </div>
       </section>
+
       <Footer />
     </>
   );

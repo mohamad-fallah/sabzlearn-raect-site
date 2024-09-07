@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 
@@ -145,7 +144,7 @@ export default function Navbar() {
               <i class="fas fa-shopping-cart main-header__cart-icon"></i>
             </a>
             <a href="#" class="main-header__profile">
-              <span class="main-header__profile-text">محمدرضا فلاح فعال</span>
+              <span class="main-header__profile-text">محمدامین سعیدی راد</span>
             </a>
           </div>
         </div>

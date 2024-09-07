@@ -49,13 +49,13 @@ export default function Topbar() {
           <div class="top-bar__left">
             <div class="top-bar__email">
               <a href="#" class="top-bar__email-text top-bar__link">
-                mfallahfaal@gmail.com
+                sabzlearn@gmail.com
               </a>
               <i class="fas fa-envelope top-bar__email-icon"></i>
             </div>
             <div class="top-bar__phone">
-              <a href="#" class="top-bar__phone-text top-bar__link" >
-                09393431257
+              <a href="#" class="top-bar__phone-text top-bar__link">
+                09921558293
               </a>
               <i class="fas fa-phone top-bar__phone-icon"></i>
             </div>
