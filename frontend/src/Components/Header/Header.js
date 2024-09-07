@@ -7,10 +7,10 @@ import "./Header.css";
 
 export default function Header() {
   return (
-    <header class="header">
-        <Topbar />
-        <Navbar />
-        <Landing />
+    <header className="header">
+      <Topbar />
+      <Navbar />
+      <Landing />
     </header>
   );
 }

@@ -5,22 +5,20 @@ import "./Breadcrumb.css";
 
 export default function Breadcrumb({ links }) {
   return (
-    <section class="breadcrumb">
-      <div class="container">
-        <div class="breadcrumb__content">
-          <div class="breadcrumb__home-content-icon">
-            <i class="fas fa-home breadcrumb__home-icon"></i>
+    <section className="breadcrumb">
+      <div className="container">
+        <div className="breadcrumb__content">
+          <div className="breadcrumb__home-content-icon">
+            <i className="fas fa-home breadcrumb__home-icon"></i>
           </div>
-          <ul class="breadcrumb__list">
+          <ul className="breadcrumb__list">
             {links.map((link) => (
-              <li class="breadcrumb__item">
-                <Link to={`/${link.to}`} class="breadcrumb__link">
+              <li className="breadcrumb__item">
+                <Link to={`/${link.to}`} className="breadcrumb__link">
                   {link.title}
-                  {
-                      link.id !== links.length ? (
-                          <i class="fas fa-angle-left breadcrumb__icon"></i>
-                      ) : null
-                  }
+                  {link.id !== links.length ? (
+                    <i className="fas fa-angle-left breadcrumb__icon"></i>
+                  ) : null}
                 </Link>
               </li>
             ))}

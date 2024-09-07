@@ -5,11 +5,11 @@ import "./PresellCourses.css";
 
 export default function PresellCourses() {
   return (
-    <div class="popular">
-      <div class="container">
+    <div className="popular">
+      <div className="container">
         <SectionHeader
-          title='دوره های در حال پیش فروش'
-          desc='متن تستی برای توضیحات دوره های پیش فروش'
+          title="دوره های در حال پیش فروش"
+          desc="متن تستی برای توضیحات دوره های پیش فروش"
         />
       </div>
     </div>

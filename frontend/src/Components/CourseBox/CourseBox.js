@@ -4,87 +4,82 @@ import CircleSpinner from "../CircleSpinner/CircleSpinner";
 import "./CourseBox.css";
 
 export default function CourseBox() {
+  const [isImgShow, setIsImgShow] = useState(false);
 
-  const [isImgShow, setIsImgShow] = useState(false)
-
-  const onImageLoaded = () => setIsImgShow(true)
+  const onImageLoaded = () => setIsImgShow(true);
 
   const onImageError = () => {
     // Codes
-  }
+  };
 
   return (
-    <div class="col-4">
-      <div class="course-box">
+    <div className="col-4">
+      <div className="course-box">
         <a href="#">
           <img
             src="/images/courses/fareelancer.png"
             // src="https://placeimg.com/295/295/any/tech?t=190129384"
             alt="Course img"
-            class="course-box__img"
+            className="course-box__img"
             onLoad={onImageLoaded}
             onError={onImageError}
           />
-          {
-            !isImgShow && (
-              <CircleSpinner />
-            )
-          }
+          {!isImgShow && <CircleSpinner />}
         </a>
-        <div class="course-box__main">
-          <a href="#" class="course-box__title">
+        <div className="course-box__main">
+          <a href="#" className="course-box__title">
             دوره پروژه محور متخصص جنگو
           </a>
 
-          <div class="course-box__rating-teacher">
-            <div class="course-box__teacher">
-              <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-              <a href="#" class="course-box__teacher-link">
+          <div className="course-box__rating-teacher">
+            <div className="course-box__teacher">
+              <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+              <a href="#" className="course-box__teacher-link">
                 رضا دولتی
               </a>
             </div>
-            <div class="course-box__rating">
+            <div className="course-box__rating">
               <img
                 src="/images/svgs/star.svg"
                 alt="rating"
-                class="course-box__star"
+                className="course-box__star"
               />
               <img
                 src="/images/svgs/star_fill.svg"
                 alt="rating"
-                class="course-box__star"
+                className="course-box__star"
               />
               <img
                 src="/images/svgs/star_fill.svg"
                 alt="rating"
-                class="course-box__star"
+                className="course-box__star"
               />
               <img
                 src="/images/svgs/star_fill.svg"
                 alt="rating"
-                class="course-box__star"
+                className="course-box__star"
               />
               <img
                 src="/images/svgs/star_fill.svg"
                 alt="rating"
-                class="course-box__star"
+                className="course-box__star"
               />
             </div>
           </div>
 
-          <div class="course-box__status">
-            <div class="course-box__users">
-              <i class="fas fa-users course-box__users-icon"></i>
-              <span class="course-box__users-text">500</span>
+          <div className="course-box__status">
+            <div className="course-box__users">
+              <i className="fas fa-users course-box__users-icon"></i>
+              <span className="course-box__users-text">500</span>
             </div>
-            <span class="course-box__price">1,000,000</span>
+            <span className="course-box__price">1,000,000</span>
           </div>
         </div>
 
-        <div class="course-box__footer">
-          <a href="#" class="course-box__footer-link">
+        <div className="course-box__footer">
+          <a href="#" className="course-box__footer-link">
             مشاهده اطلاعات
-            <i class="fas fa-arrow-left course-box__footer-icon"></i>
+            <i className="fas fa-arrow-left course-box__footer-icon"></i>
           </a>
         </div>
       </div>

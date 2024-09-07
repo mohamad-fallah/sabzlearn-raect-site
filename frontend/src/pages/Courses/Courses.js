@@ -25,11 +25,11 @@ export default function Courses() {
       />
 
       {/* <!--------------------------------  Courses-Section  --------------------------------> */}
-      <section class="courses">
-        <div class="container">
-          <div class="courses-content">
-            <div class="container">
-              <div class="row">
+      <section className="courses">
+        <div className="container">
+          <div className="courses-content">
+            <div className="container">
+              <div className="row">
                 <CourseBox />
                 <CourseBox />
                 <CourseBox />
@@ -42,28 +42,28 @@ export default function Courses() {
             </div>
           </div>
 
-          <div class="courses-pagination">
-            <ul class="courses__pagination-list">
-              <li class="courses__pagination-item">
-                <a href="#" class="courses__pagination-link">
-                  <i class="fas fa-long-arrow-alt-right courses__pagination-icon"></i>
+          <div className="courses-pagination">
+            <ul className="courses__pagination-list">
+              <li className="courses__pagination-item">
+                <a href="#" className="courses__pagination-link">
+                  <i className="fas fa-long-arrow-alt-right courses__pagination-icon"></i>
                 </a>
               </li>
-              <li class="courses__pagination-item">
+              <li className="courses__pagination-item">
                 <a
                   href="#"
-                  class="courses__pagination-link courses__pagination-link--active"
+                  className="courses__pagination-link courses__pagination-link--active"
                 >
                   1
                 </a>
               </li>
-              <li class="courses__pagination-item">
-                <a href="#" class="courses__pagination-link">
+              <li className="courses__pagination-item">
+                <a href="#" className="courses__pagination-link">
                   2
                 </a>
               </li>
-              <li class="courses__pagination-item">
-                <a href="#" class="courses__pagination-link">
+              <li className="courses__pagination-item">
+                <a href="#" className="courses__pagination-link">
                   3
                 </a>
               </li>

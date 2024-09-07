@@ -5,12 +5,12 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-widgets">
-          <div class="row">
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-widgets">
+          <div className="row">
             <FooterItem title="درباره ما">
-              <p class="footer-widgets__text">
+              <p className="footer-widgets__text">
                 وقتی تازه شروع به یادگیری برنامه نویسی کردم. یکی از مشکلاتی که
                 در فرآیند یادگیری داشتم، کمبود آموزش های خوب با پشتیبانی قابل
                 قبول بود که باعث شد اون موقع تصمیم بگیرم اگر روزی توانایی مالی و
@@ -27,23 +27,23 @@ export default function Footer() {
             </FooterItem>
 
             <FooterItem title="آخرین مطالب">
-              <div class="footer-widgets__links">
-                <a href="#" class="footer-widgets__link">
+              <div className="footer-widgets__links">
+                <a href="#" className="footer-widgets__link">
                   نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
                 </a>
-                <a href="#" class="footer-widgets__link">
+                <a href="#" className="footer-widgets__link">
                   چگونه پایتون را آپدیت کنیم؟ | آموزش صفر تا صد آپدیت کردن
                   پایتون
                 </a>
-                <a href="#" class="footer-widgets__link">
+                <a href="#" className="footer-widgets__link">
                   آموزش نصب پایتون ( Python ) در در مک، ویندوز و لینوکس | گام به
                   گام و تصویری
                 </a>
-                <a href="#" class="footer-widgets__link">
+                <a href="#" className="footer-widgets__link">
                   بهترین فریم ورک های فرانت اند | 16 فریم ورک Front end بررسی
                   معایب و مزایا
                 </a>
-                <a href="#" class="footer-widgets__link">
+                <a href="#" className="footer-widgets__link">
                   معرفی بهترین سایت آموزش جاوا اسکریپت [ تجربه محور ] + آموزش
                   رایگان
                 </a>
@@ -51,37 +51,37 @@ export default function Footer() {
             </FooterItem>
 
             <FooterItem title="دسترسی سریع">
-              <div class="row">
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+              <div className="row">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش HTML
                   </a>
                 </div>
 
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش CSS
                   </a>
                 </div>
 
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش جاوا اسکریپت
                   </a>
                 </div>
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش بوت استرپ
                   </a>
                 </div>
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش ریکت
                   </a>
                 </div>
 
-                <div class="col-6">
-                  <a href="#" class="footer-widgets__link">
+                <div className="col-6">
+                  <a href="#" className="footer-widgets__link">
                     آموزش پایتون
                   </a>
                 </div>
@@ -91,8 +91,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div class="footer__copyright">
-        <span class="footer__copyright-text">
+      <div className="footer__copyright">
+        <span className="footer__copyright-text">
           کلیه حقوق برای آکادمی آموزش برنامه نویسی سبز لرن محفوظ است.
         </span>
       </div>
