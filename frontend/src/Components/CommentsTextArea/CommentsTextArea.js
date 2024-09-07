@@ -15,11 +15,7 @@ export default function CommentsTextArea() {
         <span className="comments__content-title">دیدگاه *</span>
         <textarea className="comments__content-textarea"></textarea>
       </div>
-      <button
-        type="submit"
-        className="comments__button"
-        onClick={() => console.log("کامنت ثبت شد")}
-      >
+      <button type="submit" className="comments__button" onClick={() => console.log('کامنت ثبت شد')}>
         فرستادن دیدگاه
       </button>
     </div>

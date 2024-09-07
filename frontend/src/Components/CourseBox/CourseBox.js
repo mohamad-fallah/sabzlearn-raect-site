@@ -4,13 +4,14 @@ import CircleSpinner from "../CircleSpinner/CircleSpinner";
 import "./CourseBox.css";
 
 export default function CourseBox() {
-  const [isImgShow, setIsImgShow] = useState(false);
 
-  const onImageLoaded = () => setIsImgShow(true);
+  const [isImgShow, setIsImgShow] = useState(false)
+
+  const onImageLoaded = () => setIsImgShow(true)
 
   const onImageError = () => {
     // Codes
-  };
+  }
 
   return (
     <div className="col-4">
@@ -24,7 +25,11 @@ export default function CourseBox() {
             onLoad={onImageLoaded}
             onError={onImageError}
           />
-          {!isImgShow && <CircleSpinner />}
+          {
+            !isImgShow && (
+              <CircleSpinner />
+            )
+          }
         </a>
         <div className="course-box__main">
           <a href="#" className="course-box__title">

@@ -5,7 +5,7 @@ import Footer from "./../../Components/Footer/Footer";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import CourseDetailBox from "../../Components/CourseDetailBox/CourseDetailBox";
 import CommentsTextArea from "../../Components/CommentsTextArea/CommentsTextArea";
-import Accordion from "react-bootstrap/Accordion";
+import Accordion from 'react-bootstrap/Accordion';
 
 import "./CourseInfo.css";
 
@@ -220,14 +220,9 @@ export default function CourseInfo() {
                         <Accordion.Header>معرفی دوره</Accordion.Header>
                         <Accordion.Body className="introduction__accordion-body">
                           <div className="introduction__accordion-right">
-                            <span className="introduction__accordion-count">
-                              1
-                            </span>
+                            <span className="introduction__accordion-count">1</span>
                             <i className="fab fa-youtube introduction__accordion-icon"></i>
-                            <a
-                              href="#"
-                              className="introduction__accordion-link"
-                            >
+                            <a href="#" className="introduction__accordion-link">
                               معرفی دوره + چرا یادگیری کتابخانه ها ضروری است؟
                             </a>
                           </div>
@@ -243,61 +238,52 @@ export default function CourseInfo() {
                           اصطلاحات مقدماتی مربوط به بک‌اند
                         </Accordion.Header>
                         <Accordion.Body className="introduction__accordion-body">
-                          <div className="introduction__accordion-right">
-                            <span className="introduction__accordion-count">
-                              1
-                            </span>
-                            <i className="fab fa-youtube introduction__accordion-icon"></i>
-                            <a
-                              href="#"
-                              className="introduction__accordion-link"
-                            >
-                              معرفی دوره + چرا یادگیری کتابخانه ها ضروری است؟
-                            </a>
-                          </div>
-                          <div className="introduction__accordion-left">
-                            <span className="introduction__accordion-time">
-                              18:34
-                            </span>
-                          </div>
+                            <div className="introduction__accordion-right">
+                              <span className="introduction__accordion-count">
+                                1
+                              </span>
+                              <i className="fab fa-youtube introduction__accordion-icon"></i>
+                              <a href="#" className="introduction__accordion-link">
+                                معرفی دوره + چرا یادگیری کتابخانه ها ضروری است؟
+                              </a>
+                            </div>
+                            <div className="introduction__accordion-left">
+                              <span className="introduction__accordion-time">
+                                18:34
+                              </span>
+                            </div>
                         </Accordion.Body>
                         <Accordion.Body className="introduction__accordion-body">
-                          <div className="introduction__accordion-right">
-                            <span className="introduction__accordion-count">
-                              1
-                            </span>
-                            <i className="fab fa-youtube introduction__accordion-icon"></i>
-                            <a
-                              href="#"
-                              className="introduction__accordion-link"
-                            >
-                              جلسه دوم این فصل
-                            </a>
-                          </div>
-                          <div className="introduction__accordion-left">
-                            <span className="introduction__accordion-time">
-                              18:34
-                            </span>
-                          </div>
+                            <div className="introduction__accordion-right">
+                              <span className="introduction__accordion-count">
+                                1
+                              </span>
+                              <i className="fab fa-youtube introduction__accordion-icon"></i>
+                              <a href="#" className="introduction__accordion-link">
+                                جلسه دوم این فصل
+                              </a>
+                            </div>
+                            <div className="introduction__accordion-left">
+                              <span className="introduction__accordion-time">
+                                18:34
+                              </span>
+                            </div>
                         </Accordion.Body>
                         <Accordion.Body className="introduction__accordion-body">
-                          <div className="introduction__accordion-right">
-                            <span className="introduction__accordion-count">
-                              1
-                            </span>
-                            <i className="fab fa-youtube introduction__accordion-icon"></i>
-                            <a
-                              href="#"
-                              className="introduction__accordion-link"
-                            >
-                              جلسه سوم این فصل
-                            </a>
-                          </div>
-                          <div className="introduction__accordion-left">
-                            <span className="introduction__accordion-time">
-                              18:34
-                            </span>
-                          </div>
+                            <div className="introduction__accordion-right">
+                              <span className="introduction__accordion-count">
+                                1
+                              </span>
+                              <i className="fab fa-youtube introduction__accordion-icon"></i>
+                              <a href="#" className="introduction__accordion-link">
+                                جلسه سوم این فصل
+                              </a>
+                            </div>
+                            <div className="introduction__accordion-left">
+                              <span className="introduction__accordion-time">
+                                18:34
+                              </span>
+                            </div>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -360,9 +346,7 @@ export default function CourseInfo() {
                         <span className="course-info__total-sale-text">
                           تعداد دانشجو :
                         </span>
-                        <span className="course-info__total-sale-number">
-                          178
-                        </span>
+                        <span className="course-info__total-sale-number">178</span>
                       </div>
                     </div>
                     <div className="course-info__bottom">
@@ -384,18 +368,14 @@ export default function CourseInfo() {
                 <div className="course-info">
                   <div className="course-info__header-short-url">
                     <i className="fas fa-link course-info__short-url-icon"></i>
-                    <span className="course-info__short-url-text">
-                      لینک کوتاه
-                    </span>
+                    <span className="course-info__short-url-text">لینک کوتاه</span>
                   </div>
                   <span className="course-info__short-url">
                     https://sabzlearn.ir/?p=117472
                   </span>
                 </div>
                 <div className="course-info">
-                  <span className="course-info__topic-title">
-                    سرفصل های دوره
-                  </span>
+                  <span className="course-info__topic-title">سرفصل های دوره</span>
                   <span className="course-info__topic-text">
                     برای مشاهده و یا دانلود دوره روی کلمه
                     <a href="#" style={{ color: "blue", fontWeight: "bold" }}>
@@ -405,9 +385,7 @@ export default function CourseInfo() {
                   </span>
                 </div>
                 <div className="course-info">
-                  <span className="course-info__courses-title">
-                    دوره های مرتبط
-                  </span>
+                  <span className="course-info__courses-title">دوره های مرتبط</span>
                   <ul className="course-info__courses-list">
                     <li className="course-info__courses-list-item">
                       <a href="#" className="course-info__courses-link">

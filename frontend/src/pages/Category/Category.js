@@ -75,6 +75,7 @@ export default function Category() {
           </div>
 
           <Pagination />
+
         </div>
       </section>
 

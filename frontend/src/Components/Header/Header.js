@@ -8,9 +8,9 @@ import "./Header.css";
 export default function Header() {
   return (
     <header className="header">
-      <Topbar />
-      <Navbar />
-      <Landing />
+        <Topbar />
+        <Navbar />
+        <Landing />
     </header>
   );
 }

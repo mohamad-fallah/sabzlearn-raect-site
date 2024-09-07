@@ -144,9 +144,7 @@ export default function Navbar() {
               <i className="fas fa-shopping-cart main-header__cart-icon"></i>
             </a>
             <a href="#" className="main-header__profile">
-              <span className="main-header__profile-text">
-                محمدامین سعیدی راد
-              </span>
+              <span className="main-header__profile-text">محمدامین سعیدی راد</span>
             </a>
           </div>
         </div>

@@ -10,8 +10,10 @@ export default function AboutUsBox({ title, desc, icon }) {
           <i className="far fa-copyright about-us__icon"></i>
         </div>
         <div className="about-us__box-left">
-          <span className="about-us__box-title">{title}</span>
-          <span className="about-us__box-text">{desc}</span>
+          <span className="about-us__box-title">{ title }</span>
+          <span className="about-us__box-text">
+              { desc }
+          </span>
         </div>
       </div>
     </div>

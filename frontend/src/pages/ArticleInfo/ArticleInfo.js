@@ -92,9 +92,7 @@ export default function ArticleInfo() {
                       className="article__score-icon"
                     />
                   </div>
-                  <span className="article__score-text">
-                    4.2/5 - (5 امتیاز)
-                  </span>
+                  <span className="article__score-text">4.2/5 - (5 امتیاز)</span>
                 </div>
 
                 <p className="article__paragraph paragraph">
@@ -200,9 +198,7 @@ export default function ArticleInfo() {
                 </div>
 
                 <div className="article-social-media">
-                  <span className="article-social-media__text">
-                    اشتراک گذاری :
-                  </span>
+                  <span className="article-social-media__text">اشتراک گذاری :</span>
                   <a href="#" className="article-social-media__link">
                     <i className="fab fa-telegram-plane article-social-media__icon"></i>
                   </a>
@@ -213,6 +209,7 @@ export default function ArticleInfo() {
                     <i className="fab fa-facebook-f article-social-media__icon"></i>
                   </a>
                 </div>
+
               </div>
 
               <div className="suggestion-articles">
@@ -223,8 +220,7 @@ export default function ArticleInfo() {
                         <i className="fas fa-arrow-right suggestion-articles__icon"></i>
                       </a>
                       <a href="#" className="suggestion-articles__link">
-                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ |
-                        تجربه برنامه نویسان
+                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ | تجربه برنامه نویسان
                       </a>
                     </div>
                   </div>
@@ -234,8 +230,7 @@ export default function ArticleInfo() {
                         <i className="fas fa-arrow-left suggestion-articles__icon"></i>
                       </a>
                       <a href="#" className="suggestion-articles__link">
-                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ |
-                        تجربه برنامه نویسان
+                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ | تجربه برنامه نویسان
                       </a>
                     </div>
                   </div>
@@ -243,6 +238,7 @@ export default function ArticleInfo() {
               </div>
 
               <CommentsTextArea />
+
             </div>
             <div className="col-4"></div>
           </div>

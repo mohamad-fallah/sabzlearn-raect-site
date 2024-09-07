@@ -16,9 +16,11 @@ export default function Breadcrumb({ links }) {
               <li className="breadcrumb__item">
                 <Link to={`/${link.to}`} className="breadcrumb__link">
                   {link.title}
-                  {link.id !== links.length ? (
-                    <i className="fas fa-angle-left breadcrumb__icon"></i>
-                  ) : null}
+                  {
+                      link.id !== links.length ? (
+                          <i className="fas fa-angle-left breadcrumb__icon"></i>
+                      ) : null
+                  }
                 </Link>
               </li>
             ))}

@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
+import Button from "../../Components/Form/Button";
+import Input from "../../Components/Form/Input";
 import Navbar from "../../Components/Navbar/Navbar";
 import Topbar from "../../Components/Topbar/Topbar";
-import Input from "../../Components/Form/Input";
-import Button from "../../Components/Form/Button";
 
 import "./Register.css";
 
 export default function Register() {
   const registerNewUser = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    console.log("User Register");
   };
+
   return (
     <>
       <Topbar />
@@ -34,27 +36,27 @@ export default function Register() {
           <form action="#" className="login-form">
             <div className="login-form__username">
               <Input
-                className="login-form__username-input"
                 type="text"
                 placeholder="نام کاربری"
+                className="login-form__username-input"
                 element="input"
               />
               <i className="login-form__username-icon fa fa-user"></i>
             </div>
             <div className="login-form__password">
               <Input
-                className="login-form__password-input"
-                type="email"
+                type="text"
                 placeholder="آدرس ایمیل"
+                className="login-form__username-input"
                 element="input"
               />
               <i className="login-form__password-icon fa fa-envelope"></i>
             </div>
             <div className="login-form__password">
               <Input
-                className="login-form__password-input"
                 type="password"
                 placeholder="رمز عبور"
+                className="login-form__password-input"
                 element="input"
               />
               <i className="login-form__password-icon fa fa-lock-open"></i>
@@ -63,6 +65,7 @@ export default function Register() {
               className="login-form__btn"
               type="submit"
               onClick={registerNewUser}
+              disabled={false}
             >
               <i className="login-form__btn-icon fa fa-user-plus"></i>
               <span className="login-form__btn-text">عضویت</span>

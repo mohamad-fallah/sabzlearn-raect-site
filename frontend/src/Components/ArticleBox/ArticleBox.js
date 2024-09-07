@@ -19,7 +19,9 @@ export default function ArticleBox({ title, desc, cover }) {
           <a href="#" className="article-card__link">
             {title}
           </a>
-          <p className="article-card__text">{desc}</p>
+          <p className="article-card__text">
+            {desc}  
+          </p>
           <a href="#" className="article-card__btn">
             بیشتر بخوانید
           </a>

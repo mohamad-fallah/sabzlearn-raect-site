@@ -5,6 +5,7 @@ import LandingCounter from "../LandingCounter/LandingCounter";
 import "./Landing.css";
 
 export default function Landing() {
+
   return (
     <section className="landing">
       <div className="container">
@@ -97,9 +98,7 @@ export default function Landing() {
               </g>
             </svg>
             <LandingCounter count={3_320} />
-            <span className="landing-status__text">
-              دقیقه آموزش تولید کردیم
-            </span>
+            <span className="landing-status__text">دقیقه آموزش تولید کردیم</span>
           </div>
         </div>
       </div>
