@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Form/Button";
 import Input from "../../Components/Form/Input";
@@ -7,6 +7,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Topbar from "../../Components/Topbar/Topbar";
 import { useForm } from "../../hooks/useForm";
 import AuthContext from "../../context/authContext";
+import Swal from "sweetalert2";
 
 import {
   requiredValidator,
@@ -19,10 +20,8 @@ import "./Login.css";
 
 export default function Login() {
 
-
-  const authcontext = useContext(AuthContext)
-
-
+  const navigate = useNavigate()
+  const authcontext = useContext(AuthContext);
 
   const [formState, onInputHandler] = useForm(
     {
@@ -63,12 +62,23 @@ export default function Login() {
         }
       })
       .then((result) => {
+        Swal.fire({
+          title: "با موفقیت لاگین شدید",
+          icon: "success",
+          confirmButtonText: "ورود به پنل",
+        }).then((value) => {
+          navigate('/')
+        });
         console.log(result);
-        authcontext.login({}, result.accessToken)
+        authcontext.login({}, result.accessToken);
       })
       .catch((err) => {
         console.log(err);
-        alert('همچین کاربری وجود ندارد')
+        Swal.fire({
+          title: "همچین کاربری وجود ندارد",
+          icon: "error",
+          confirmButtonText: "تلاش دوباره",
+        });
       });
   };
 
