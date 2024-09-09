@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Form/Button";
@@ -18,8 +18,7 @@ import AuthContext from "../../context/authContext";
 import "./Register.css";
 
 export default function Register() {
-
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
   const [formState, onInputHandler] = useForm(
     {
       name: {
@@ -59,10 +58,11 @@ export default function Register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUserInfo),
-    }).then(res => res.json())
-    .then(result => {
-      authContext.login(result.user,result.accessToken)
     })
+      .then((res) => res.json())
+      .then((result) => {
+        authContext.login(result.user, result.accessToken);
+      });
   };
 
   return (

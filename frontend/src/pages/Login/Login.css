@@ -158,3 +158,13 @@
   margin-top: 1rem;
 }
 /* ============================== Login-Register Style ============================== */
+
+
+.swal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.recaptcha-parent {
+  margin-top: 2rem;
+}
