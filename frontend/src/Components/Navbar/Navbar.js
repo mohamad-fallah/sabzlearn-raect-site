@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import AuthContext from "../../context/authContext";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/authContext";
 
 import "./Navbar.css";
 
 export default function Navbar() {
   const [allMenus, setAllMenus] = useState([]);
-
-  const authcontext = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:4000/v1/menus")
+    fetch(`http://localhost:4000/v1/menus`)
       .then((res) => res.json())
-      .then((menus) => setAllMenus(menus));
+      .then((menus) => {
+        setAllMenus(menus);
+      });
   }, []);
 
   return (
@@ -25,38 +26,45 @@ export default function Navbar() {
               className="main-header__logo"
               alt="لوگوی سبزلرن"
             />
+
             <ul className="main-header__menu">
               <li className="main-header__item">
-                <Link to="/" className="main-header__link">
-                صفحه اصلی
-                </Link>
+                <a href="#" className="main-header__link">
+                  صفحه اصلی
+                </a>
               </li>
+
               {allMenus.map((menu) => (
                 <li className="main-header__item">
                   <Link to={menu.href} className="main-header__link">
                     {menu.title}
-                    {
-                      menu.submenus.length !== 0 && (
-                        <>
+                    {menu.submenus.length !== 0 && (
+                      <>
                         <i className="fas fa-angle-down main-header__link-icon"></i>
                         <ul className="main-header__dropdown">
-
-                          {
-                            menu.submenus.map(submenu => (
-                              <li className="main-header__dropdown-item">
-                              <Link to={submenu.href} className="main-header__dropdown-link">
-                              {submenu.title}
+                          {menu.submenus.map((submenu) => (
+                            <li className="main-header__dropdown-item">
+                              <Link
+                                to={submenu.href}
+                                className="main-header__dropdown-link"
+                              >
+                                {submenu.title}
                               </Link>
                             </li>
-                            ))
-                          }
+                          ))}
                         </ul>
-                        </>
-                      )
-                    }
+                      </>
+                    )}
                   </Link>
                 </li>
               ))}
+
+              {/* <li className="main-header__item">
+                <a href="#" className="main-header__link">
+                  فرانت اند
+                  
+                </a>
+              </li> */}
             </ul>
           </div>
 
@@ -67,16 +75,17 @@ export default function Navbar() {
             <a href="#" className="main-header__cart-btn">
               <i className="fas fa-shopping-cart main-header__cart-icon"></i>
             </a>
-            {authcontext.isLoggedIn ? (
+
+            {authContext.isLoggedIn ? (
               <Link to="#" className="main-header__profile">
                 <span className="main-header__profile-text">
-                  {authcontext.userInfos.name}
+                  {authContext.userInfos.name}
                 </span>
               </Link>
             ) : (
               <Link to="/login" className="main-header__profile">
                 <span className="main-header__profile-text">
-                  ثبت نام | ورود
+                  ورود / ثبت نام
                 </span>
               </Link>
             )}

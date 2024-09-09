@@ -12,13 +12,15 @@ import {
   maxValidator,
   emailValidator,
 } from "../../validators/rules";
-
 import AuthContext from "../../context/authContext";
 
 import "./Register.css";
 
 export default function Register() {
-  const authContext = useContext(AuthContext);
+
+  const authContext = useContext(AuthContext)
+  console.log(authContext);
+
   const [formState, onInputHandler] = useForm(
     {
       name: {
@@ -44,7 +46,7 @@ export default function Register() {
   const registerNewUser = (event) => {
     event.preventDefault();
 
-    const newUserInfo = {
+    const newUserInfos = {
       name: formState.inputs.name.value,
       username: formState.inputs.username.value,
       email: formState.inputs.email.value,
@@ -52,17 +54,20 @@ export default function Register() {
       confirmPassword: formState.inputs.password.value,
     };
 
-    fetch("http://localhost:4000/v1/auth/register", {
+    fetch(`http://localhost:4000/v1/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newUserInfo),
+      body: JSON.stringify(newUserInfos),
     })
       .then((res) => res.json())
       .then((result) => {
-        authContext.login(result.user, result.accessToken);
+        console.log(result);
+        authContext.login(result.user, result.accessToken)
       });
+
+    console.log("User Register");
   };
 
   return (
@@ -157,7 +162,7 @@ export default function Register() {
               }`}
               type="submit"
               onClick={registerNewUser}
-              disabled={false}
+              disabled={!formState.isFormValid}
             >
               <i className="login-form__btn-icon fa fa-user-plus"></i>
               <span className="login-form__btn-text">عضویت</span>

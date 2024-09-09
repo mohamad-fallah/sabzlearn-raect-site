@@ -7,7 +7,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Topbar from "../../Components/Topbar/Topbar";
 import { useForm } from "../../hooks/useForm";
 import AuthContext from "../../context/authContext";
-import Swal from 'sweetalert2'
+import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -65,20 +65,20 @@ export default function Login() {
         }
       })
       .then((result) => {
-        Swal.fire({
+        swal({
           title: "با موفقیت لاگین شدید",
           icon: "success",
-          confirmButtonText: "ورود به پنل",
+          buttons: "ورود به پنل",
         }).then((value) => {
           navigate("/");
         });
         authContext.login({}, result.accessToken);
       })
       .catch((err) => {
-        Swal.fire({
+        swal({
           title: "همچین کاربری وجود ندارد",
           icon: "error",
-          confirmButtonText: "تلاش دوباره",
+          buttons: "تلاش دوباره",
         });
       });
   };

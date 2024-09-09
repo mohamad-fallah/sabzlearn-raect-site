@@ -41,7 +41,7 @@ export const useForm = (initInputs, initFormIsValid) => {
       value,
       isValid,
       inputID: id,
-    })
+    });
   }, []);
 
   return [formState, onInputHandler];

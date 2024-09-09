@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { Link } from "react-router-dom";
 
 import "./Topbar.css";
 
 export default function Topbar() {
-  const [allTopbarList, setAllTopbarList] = useState([]);
+  const [allTopbarLinks, setAllTopbarLinks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/v1/menus/topbar")
+    fetch(`http://localhost:4000/v1/menus/topbar`)
       .then((res) => res.json())
-      .then((data) => setAllTopbarList(data));
+      .then((data) => setAllTopbarLinks(data));
   }, []);
 
   const getRandomItemsFromArray = (arr, randomCount) => {
@@ -23,10 +23,10 @@ export default function Topbar() {
         <div className="top-bar__content">
           <div className="top-bar__right">
             <ul className="top-bar__menu">
-              {getRandomItemsFromArray(allTopbarList, 5).map((link) => (
+              {getRandomItemsFromArray(allTopbarLinks, 5).map((link) => (
                 <li className="top-bar__item">
                   <Link to={link.href} className="top-bar__link">
-                  {link.title}
+                    {link.title}
                   </Link>
                 </li>
               ))}
