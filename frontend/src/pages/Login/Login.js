@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Form/Button";
@@ -6,6 +6,7 @@ import Input from "../../Components/Form/Input";
 import Navbar from "../../Components/Navbar/Navbar";
 import Topbar from "../../Components/Topbar/Topbar";
 import { useForm } from "../../hooks/useForm";
+import AuthContext from "../../context/authContext";
 
 import {
   requiredValidator,
@@ -17,6 +18,12 @@ import {
 import "./Login.css";
 
 export default function Login() {
+
+
+  const authcontext = useContext(AuthContext)
+
+
+
   const [formState, onInputHandler] = useForm(
     {
       username: {
@@ -31,11 +38,38 @@ export default function Login() {
     false
   );
 
-  console.log(formState);
-
   const userLogin = (event) => {
     event.preventDefault();
-    console.log("User Login");
+
+    const userData = {
+      identifier: formState.inputs.username.value,
+      password: formState.inputs.password.value,
+    };
+
+    fetch("http://localhost:4000/v1/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        } else {
+          return res.json();
+        }
+      })
+      .then((result) => {
+        console.log(result);
+        authcontext.login({}, result.accessToken)
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('همچین کاربری وجود ندارد')
+      });
   };
 
   return (
@@ -67,7 +101,6 @@ export default function Login() {
                   requiredValidator(),
                   minValidator(8),
                   maxValidator(20),
-                  emailValidator()
                 ]}
                 onInputHandler={onInputHandler}
               />
@@ -98,7 +131,8 @@ export default function Login() {
               }`}
               type="submit"
               onClick={userLogin}
-              disabled={!formState.isFormValid}
+              disabled={false}
+              // disabled={!formState.isFormValid}
             >
               <i className="login-form__btn-icon fas fa-sign-out-alt"></i>
               <span className="login-form__btn-text">ورود</span>
