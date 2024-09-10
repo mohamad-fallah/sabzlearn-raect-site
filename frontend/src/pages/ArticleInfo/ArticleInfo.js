@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Topbar from "./../../Components/Topbar/Topbar";
 import Navbar from "./../../Components/Navbar/Navbar";
 import Footer from "./../../Components/Footer/Footer";
 import Breadcrumb from "./../../Components/Breadcrumb/Breadcrumb";
+import domPurify from 'dompurify'
 
 import "./ArticleInfo.css";
 import CommentsTextArea from "../../Components/CommentsTextArea/CommentsTextArea";
+import { useParams } from "react-router-dom";
 
 export default function ArticleInfo() {
+  const [articleDetails, setArticleDetails] = useState({});
+  const [articleCategory, setArticleCategory] = useState({});
+  const [articleCreator, setArticleCreator] = useState({});
+  const [articleCreateDate, setArticleCreateDate] = useState("");
+  const { articleName } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/articles/${articleName}`)
+      .then((res) => res.json())
+      .then((articleInfo) => {
+        setArticleDetails(articleInfo);
+        setArticleCategory(articleInfo.categoryID);
+        setArticleCreator(articleInfo.creator);
+        setArticleCreateDate(articleInfo.createdAt);
+      });
+  }, []);
+
   return (
     <>
       <Topbar />
@@ -34,34 +53,25 @@ export default function ArticleInfo() {
           <div className="row">
             <div className="col-8">
               <div className="article">
-                <h1 className="article__title">
-                  معرفی بهترین سایت آموزش جاوا اسکریپت [ تجربه محور ] + آموزش
-                  رایگان
-                </h1>
+                <h1 className="article__title">{articleDetails.title}</h1>
                 <div className="article__header">
                   <div className="article-header__category article-header__item">
                     <i className="far fa-folder article-header__icon"></i>
                     <a href="#" className="article-header__text">
-                      جاوا اسکریپت
+                      {articleCategory.title}
                     </a>
                   </div>
                   <div className="article-header__category article-header__item">
                     <i className="far fa-user article-header__icon"></i>
                     <span className="article-header__text">
-                      {" "}
-                      ارسال شده توسط قدیر
-                    </span>
-                  </div>
-                  <div className="article-header__category article-header__item">
-                    <i className="far fa-clock article-header__icon"></i>
-                    <span className="article-header__text">
-                      {" "}
-                      ارسال شده توسط قدیر
+                      ارسال شده توسط {articleCreator.name}
                     </span>
                   </div>
                   <div className="article-header__category article-header__item">
                     <i className="far fa-eye article-header__icon"></i>
-                    <span className="article-header__text"> 2.14k بازدید</span>
+                    <span className="article-header__text">
+                      تاریخ انتشار: {articleCreateDate.slice(0, 10)}
+                    </span>
                   </div>
                 </div>
                 <img
@@ -92,7 +102,9 @@ export default function ArticleInfo() {
                       className="article__score-icon"
                     />
                   </div>
-                  <span className="article__score-text">4.2/5 - (5 امتیاز)</span>
+                  <span className="article__score-text">
+                    4.2/5 - (5 امتیاز)
+                  </span>
                 </div>
 
                 <p className="article__paragraph paragraph">
@@ -138,8 +150,9 @@ export default function ArticleInfo() {
                   alt="Article Image"
                   className="article__seconadary-banner"
                 />
-                <div className="article-section">
-                  <h2 className="article-section__title">
+                
+                <div className="article-section" dangerouslySetInnerHTML={{ __html: domPurify.sanitize(articleDetails.body) }}>
+                  {/* <h2 className="article-section__title">
                     معرفی بهترین سایت ‌های آموزش جاوا اسکریپت:
                   </h2>
                   <p className="paragraph article-section__text">
@@ -152,53 +165,13 @@ export default function ArticleInfo() {
                     به شما خواهیم گفت که راه آسان دیگری برای یادگیری زبان جاوا
                     اسکریپت وجود دارد که شما بتوانید به واسطه آن به صورت رایگان
                     و به زبان فارسی این زبان را یاد بگیرید.
-                  </p>
-                  <img
-                    src="/images/blog/4.png"
-                    alt="article body img"
-                    className="article-section__img"
-                  />
-                </div>
-                <div className="article-section">
-                  <h2 className="article-section__title">
-                    معرفی بهترین سایت ‌های آموزش جاوا اسکریپت:
-                  </h2>
-                  <p className="paragraph article-section__text">
-                    توجه داشته باشید که تمام وب سایت‌هایی که به عنوان بهترین
-                    سایت آموزش جاوا اسکریپت در ادامه معرفی می‌کنیم، بین‌المللی
-                    هستند و منابع موجود در آن‌ها به زبان انگلیسی است. در نتیجه
-                    شما باید یا تسلط متوسط و حداقلی به زبان انگلیسی داشته باشید
-                    و یا اینکه با استفاده از گوگل ترنسلیت منابع موجود را ترجمه
-                    کرده و از آن‌ها استفاده کنید. به همین دلیل در انتهای محتوا
-                    به شما خواهیم گفت که راه آسان دیگری برای یادگیری زبان جاوا
-                    اسکریپت وجود دارد که شما بتوانید به واسطه آن به صورت رایگان
-                    و به زبان فارسی این زبان را یاد بگیرید.
-                  </p>
-                </div>
-                <div className="article-section">
-                  <h2 className="article-section__title">
-                    معرفی بهترین سایت ‌های آموزش جاوا اسکریپت:
-                  </h2>
-                  <p className="paragraph article-section__text">
-                    توجه داشته باشید که تمام وب سایت‌هایی که به عنوان بهترین
-                    سایت آموزش جاوا اسکریپت در ادامه معرفی می‌کنیم، بین‌المللی
-                    هستند و منابع موجود در آن‌ها به زبان انگلیسی است. در نتیجه
-                    شما باید یا تسلط متوسط و حداقلی به زبان انگلیسی داشته باشید
-                    و یا اینکه با استفاده از گوگل ترنسلیت منابع موجود را ترجمه
-                    کرده و از آن‌ها استفاده کنید. به همین دلیل در انتهای محتوا
-                    به شما خواهیم گفت که راه آسان دیگری برای یادگیری زبان جاوا
-                    اسکریپت وجود دارد که شما بتوانید به واسطه آن به صورت رایگان
-                    و به زبان فارسی این زبان را یاد بگیرید.
-                  </p>
-                  <img
-                    src="/images/blog/3.jpg"
-                    alt="article body img"
-                    className="article-section__img"
-                  />
+                  </p> */}
                 </div>
 
                 <div className="article-social-media">
-                  <span className="article-social-media__text">اشتراک گذاری :</span>
+                  <span className="article-social-media__text">
+                    اشتراک گذاری :
+                  </span>
                   <a href="#" className="article-social-media__link">
                     <i className="fab fa-telegram-plane article-social-media__icon"></i>
                   </a>
@@ -209,7 +182,6 @@ export default function ArticleInfo() {
                     <i className="fab fa-facebook-f article-social-media__icon"></i>
                   </a>
                 </div>
-
               </div>
 
               <div className="suggestion-articles">
@@ -220,7 +192,8 @@ export default function ArticleInfo() {
                         <i className="fas fa-arrow-right suggestion-articles__icon"></i>
                       </a>
                       <a href="#" className="suggestion-articles__link">
-                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ | تجربه برنامه نویسان
+                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ |
+                        تجربه برنامه نویسان
                       </a>
                     </div>
                   </div>
@@ -230,15 +203,13 @@ export default function ArticleInfo() {
                         <i className="fas fa-arrow-left suggestion-articles__icon"></i>
                       </a>
                       <a href="#" className="suggestion-articles__link">
-                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ | تجربه برنامه نویسان
+                        سریع ترین و بهترین راه یادگیری جاوا اسکریپت چیست؟ |
+                        تجربه برنامه نویسان
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <CommentsTextArea />
-
             </div>
             <div className="col-4"></div>
           </div>

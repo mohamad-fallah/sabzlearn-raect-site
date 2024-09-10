@@ -55,7 +55,6 @@ export default function Login() {
       body: JSON.stringify(userData),
     })
       .then((res) => {
-        console.log(res);
         if (!res.ok) {
           return res.text().then((text) => {
             throw new Error(text);
@@ -84,7 +83,6 @@ export default function Login() {
   };
 
   const onChangeHandler = () => {
-    console.log('گوگل ری‌کپچا وریفای شد`');
     setIsGoogleRecaptchaVerify(true)
   }
 

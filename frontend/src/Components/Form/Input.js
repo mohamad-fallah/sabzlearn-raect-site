@@ -32,7 +32,6 @@ export default function Input(props) {
   }, [value]);
 
   const onChangeHandler = (event) => {
-    console.log(event.target.value);
     dispatch({
       type: "CHANGE",
       value: event.target.value,
@@ -63,5 +62,5 @@ export default function Input(props) {
       />
     );
 
-  return <div>{element}</div>;
+  return <div style={{width: '100%'}}>{element}</div>;
 }

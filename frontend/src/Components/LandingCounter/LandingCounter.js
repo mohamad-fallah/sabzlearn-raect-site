@@ -6,7 +6,7 @@ export default function LandingCounter({ count }) {
   useEffect(() => {
     let interval = setInterval(() => {
       setCourseCounter((prevCount) => prevCount + 1);
-    }, 1);
+    }, 10);
 
     if (courseCounter === count) {
       clearInterval(interval);

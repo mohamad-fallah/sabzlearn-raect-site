@@ -1,11 +1,12 @@
 const courseModel = require("../../models/course");
 const sessionModel = require("../../models/session");
+const commentModel = require("../../models/comment");
+const categoryModel = require("../../models/category");
 const courseUserModel = require("../../models/course-user");
 
 exports.create = async (req, res) => {
-  const { name, description, shortName, categoryID } = req.body;
-
-  console.log(req.body);
+  const { name, description, shortName, categoryID, price, support, status } =
+    req.body;
 
   const course = await courseModel.create({
     name,
@@ -13,7 +14,11 @@ exports.create = async (req, res) => {
     shortName,
     creator: req.user._id,
     categoryID,
-    cover: "images/courses/js.jpeg",
+    price,
+    isComplete: 0,
+    status,
+    support,
+    cover: req.file.filename,
   });
 
   const populatedCourse = await courseModel
@@ -24,41 +29,82 @@ exports.create = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
-  const courses = await courseModel.find().populate("creator", "-password");
+  const courses = await courseModel
+    .find()
+    .populate("creator", "-password")
+    .populate("categoryID")
+    .lean()
+    .sort({ _id: -1 });
 
-  return res.json(courses);
+  let allCourses = [];
+  courses.forEach((course) => {
+    allCourses.push({
+      ...course,
+      categoryID: course.categoryID.title,
+      creator: course.creator.name,
+    });
+  });
+
+  return res.json(allCourses);
 };
 
 exports.getOne = async (req, res) => {
   const course = await courseModel
-    .findOne({ shortName: req.params.id })
+    .findOne({ shortName: req.params.shortName })
     .populate("categoryID", "-password")
     .populate("creator", "-password")
     .lean();
 
-  const sessions = await sessionModel
-    .find({ course: req.body.courseID })
+  const sessions = await sessionModel.find({ course: course._id }).lean();
+  const comments = await commentModel
+    .find({ course: course._id })
+    .populate("creator")
     .lean();
 
-  // const isUserRegisteredToThisCourse = !!(await courseUserModel.findOne({
-  //   user: req.user._id,
-  //   course: req.body.courseID
-  // }));
-  // console.log(isUserRegisteredToThisCourse);
-  res.json({ ...course, sessions });
+  const courseStudentsCount = await courseUserModel
+    .find({
+      course: course._id,
+    })
+    .count();
+  let isUserRegisteredToThisCourse = null;
+  if (req.user) {
+    isUserRegisteredToThisCourse = !!(await courseUserModel.findOne({
+      user: req.user._id,
+      course: course._id,
+    }));
+  } else {
+    isUserRegisteredToThisCourse = false;
+  }
 
-  // return res.json({ ...course, sessions, isUserRegisteredToThisCourse });
+  return res.json({
+    ...course,
+    courseStudentsCount,
+    sessions,
+    comments,
+    isUserRegisteredToThisCourse,
+  });
 };
 
 exports.createSession = async (req, res) => {
-  const { title } = req.body;
+  const { title, time, free } = req.body;
 
   const session = await sessionModel.create({
     title,
+    time,
+    free,
     course: req.params.id,
+    video: req.file.filename,
   });
 
   return res.status(201).json(session);
+};
+
+exports.getAllSessions = async (req, res) => {
+  const allSessions = await sessionModel
+    .find()
+    .populate("course", "name")
+    .lean();
+  res.json(allSessions);
 };
 
 exports.register = async (req, res) => {
@@ -78,4 +124,54 @@ exports.register = async (req, res) => {
   });
 
   return res.status(201).json({ message: "you are registered successfully." });
+};
+
+exports.getCategoryCourses = async (req, res) => {
+  const { categoryName } = req.params;
+  const category = await categoryModel.find({ name: categoryName });
+  if (category.length) {
+    const categoryCourses = await courseModel.find({
+      categoryID: category[0]._id,
+    });
+    res.json(categoryCourses);
+  } else {
+    res.json([]);
+  }
+};
+
+exports.remove = async (req, res) => {
+  const deletedCourse = await courseModel.findOneAndRemove({
+    _id: req.params.id,
+  });
+  if (!deletedCourse) {
+    return res.status(404).json({ message: "Course Not Found!" });
+  }
+  return res.json(deletedCourse);
+};
+
+exports.removeSession = async (req, res) => {
+  const deletedSession = await sessionModel.findOneAndRemove({
+    _id: req.params.id,
+  });
+  if (!deletedSession) {
+    return res.status(404).json({ message: "Session Not Found!" });
+  }
+  return res.json(deletedSession);
+};
+
+exports.getSessionInfo = async (req, res) => {
+  const course = await courseModel
+    .findOne({ shortName: req.params.shortName })
+    .lean();
+
+  const session = await sessionModel.findOne({
+    course: course._id,
+    _id: req.params.sessionID,
+  });
+
+  const sessions = await sessionModel.find({ course: course._id });
+
+  console.log(sessions);
+
+  res.json({ sessions, session });
 };
